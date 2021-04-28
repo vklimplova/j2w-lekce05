@@ -20,8 +20,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" method="get" th:action="@{/}">
+                    <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search" th:value="${query}">
                     <button class="btn btn-outline-light" type="submit">Search</button>
                 </form>
             </div>
@@ -64,6 +64,14 @@
         </div>
         <div class="col-md-1 align-self-end">
             <button type="submit" class="btn btn-primary"><i class="bi-person-plus-fill" role="img" aria-label="Append"></i></button>
+        </div>
+    </form>
+
+    <h2 class="mt-5 mb-3">Delete person</h2>
+    <form class="row g-3" th:action="@{/}" method="post">
+        <input name="id" type="hidden" value="0"/>
+        <div>
+            <button type="submit" class="btn btn-primary">Delete</button>
         </div>
     </form>
 </div>

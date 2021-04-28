@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Filip Jirsák
@@ -32,10 +33,27 @@ public class FamousPeopleController {
     return result;
   }
 
+  @GetMapping(value = "/", params = "query")
+  public ModelAndView query(String query) {
+    List<Person> filteredPeople = people.stream()
+            .filter(person -> person.getGivenName().contains(query) || person.getLastName().contains(query))
+            .collect(Collectors.toList());
+    ModelAndView result = new ModelAndView("index");
+    result.addObject("people", filteredPeople);
+    result.addObject("query", query);
+    return result;
+  }
+
   @PostMapping(value = "/", params = {"givenName", "lastName", "birthDate"})
   public String append(Person person) {
     people.add(person);
 
+    return "redirect:/";
+  }
+
+  @PostMapping(value = "/", params = {"id"})
+  public String delete(int id) {
+    people.remove(id);
     return "redirect:/";
   }
 }
