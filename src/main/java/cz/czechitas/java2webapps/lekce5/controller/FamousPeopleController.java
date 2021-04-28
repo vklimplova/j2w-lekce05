@@ -3,6 +3,8 @@ package cz.czechitas.java2webapps.lekce5.controller;
 import cz.czechitas.java2webapps.lekce5.entity.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
@@ -30,12 +32,10 @@ public class FamousPeopleController {
     return result;
   }
 
-  @GetMapping(value = "/", params = {"givenName", "lastName", "birthDate"})
-  public ModelAndView append(Person person) {
+  @PostMapping(value = "/", params = {"givenName", "lastName", "birthDate"})
+  public String append(Person person) {
     people.add(person);
 
-    ModelAndView result = new ModelAndView("index");
-    result.addObject("people", people);
-    return result;
+    return "redirect:/";
   }
 }
