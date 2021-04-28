@@ -29,4 +29,13 @@ public class FamousPeopleController {
     result.addObject("people", people);
     return result;
   }
+
+  @GetMapping(value = "/", params = {"givenName", "lastName", "birthDate"})
+  public ModelAndView append(Person person) {
+    people.add(person);
+
+    ModelAndView result = new ModelAndView("index");
+    result.addObject("people", people);
+    return result;
+  }
 }

@@ -1,5 +1,7 @@
 package cz.czechitas.java2webapps.lekce5.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 
 /**
@@ -39,6 +41,7 @@ public class Person {
   return birthDate;
  }
 
+ @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
  public void setBirthDate(LocalDate birthDate) {
   this.birthDate = birthDate;
  }
