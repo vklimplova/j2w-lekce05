@@ -12,4 +12,4 @@ Zatím jsme jen zobrazovali data, dnes je konečně začneme také upravovat. Po
 4. Na konci controlleru proveď přesměrování zpět na úvodní stránku aplikace (POST-redirect-GET), aby se zobrazil seznam osob. Seznam se zobrazí už s nově přidanou osobou.
 
 ## Odkazy
-* [Lekce 5](https://java.czechitas.cz/2022-podzim/java-2/lekce-5.html)
+* [Lekce 5](https://java.czechitas.cz/2022-podzim/java-2-online/lekce-5.html)
