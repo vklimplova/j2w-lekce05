@@ -8,41 +8,52 @@ import java.time.LocalDate;
  * Entita reprezentující osobu.
  */
 public class Person {
- private String givenName;
- private String lastName;
- private LocalDate birthDate;
+  private String givenName;
+  private String lastName;
+  private LocalDate birthDate;
 
- public Person() {
- }
+  private Gender gender;
 
- public Person(String givenName, String lastName, LocalDate birthDate) {
-  this.givenName = givenName;
-  this.lastName = lastName;
-  this.birthDate = birthDate;
- }
+  public Person() {
+  }
 
- public String getGivenName() {
-  return givenName;
- }
+  public Person(String givenName, String lastName, LocalDate birthDate, Gender gender) {
+    this.givenName = givenName;
+    this.lastName = lastName;
+    this.birthDate = birthDate;
+    this.gender = gender;
+  }
 
- public void setGivenName(String givenName) {
-  this.givenName = givenName;
- }
+  public String getGivenName() {
+    return givenName;
+  }
 
- public String getLastName() {
-  return lastName;
- }
+  public void setGivenName(String givenName) {
+    this.givenName = givenName;
+  }
 
- public void setLastName(String lastName) {
-  this.lastName = lastName;
- }
+  public String getLastName() {
+    return lastName;
+  }
 
- public LocalDate getBirthDate() {
-  return birthDate;
- }
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 
- @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
- public void setBirthDate(LocalDate birthDate) {
-  this.birthDate = birthDate;
- }
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
+  public Gender getGender() {
+    return gender;
+  }
+
+  public void setGender(Gender gender) {
+    this.gender = gender;
+  }
 }
