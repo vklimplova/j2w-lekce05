@@ -1,4 +1,5 @@
 spring:
   freemarker:
     settings:
+      output_encoding: UTF-8
       object_wrapper: no.api.freemarker.java8.Java8ObjectWrapper(Configuration.VERSION_2_3_31)
