@@ -28,6 +28,10 @@ public class FamousPeopleService {
             .toList();
   }
 
+  public Person getById(int id) {
+    return people.get(id);
+  }
+
   public void append(Person person) {
     people.add(person);
   }

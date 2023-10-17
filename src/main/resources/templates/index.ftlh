@@ -2,11 +2,7 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <title>Famous people</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    [#include "_common/header.ftlh"]
 </head>
 <body>
 
@@ -56,39 +52,13 @@
             </td>
             <td>${person.birthDate.format('LONG_DATE')}</td>
             <td>
+                <a href="/${person?index}" class="btn btn-secondary"><i class="bi bi-person-fill-gear" role="img" aria-label="Edit"></i></a>
                 <button type="submit" class="btn btn-secondary"><i class="bi bi-person-x-fill" role="img" aria-label="Delete"></i></button>
             </td>
         </tr>
         [/#list]
         </tbody>
     </table>
-
-    <h2 class="mt-5 mb-3">Append new person</h2>
-    <div class="row g-3">
-        <div class="col-md-3">
-            <label for="given-name" class="form-label">Given name</label>
-            <input id="given-name" name="givenName" class="form-control" type="text"/>
-        </div>
-        <div class="col-md-4">
-            <label for="last-name" class="form-label">Last name</label>
-            <input id="last-name" name="lastName" class="form-control" type="text"/>
-        </div>
-        <div class="col-md-2">
-            <label for="birth-date" class="form-label">Birth date</label>
-            <input id="birth-date" name="birthDate" class="form-control" type="date"/>
-        </div>
-        <div class="col-md-2">
-            <label for="gender" class="form-label">Gender</label>
-            <select id="gender" name="gender" class="form-select">
-                [#list gender as item]
-                    <option value="${item.name()}">${item.title}</option>
-                [/#list]
-            </select>
-        </div>
-        <div class="col-md-1 align-self-end">
-            <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus-fill" role="img" aria-label="Append"></i></button>
-        </div>
-    </div>
 </div>
 </body>
 </html>
