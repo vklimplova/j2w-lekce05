@@ -26,9 +26,10 @@
     </nav>
 
     <h2 class="mt-5 mb-3">Person detail</h2>
-    <div class="row g-3">
+    <form class="row g-3" method="post" action="/${id}">
         <div class="col-md-3">
             <label for="given-name" class="form-label">Given name</label>
+            [#-- id je jedinečný, musí být na stránce jen jedno se stejným názvem --]
             <input id="given-name" name="givenName" class="form-control" type="text" value="${person.givenName!}"/>
         </div>
         <div class="col-md-4">
@@ -50,7 +51,7 @@
         <div class="col-md-1 align-self-end">
             <button type="submit" class="btn btn-primary"><i class="bi bi-person-check-fill" role="img" aria-label="Edit"></i></button>
         </div>
-    </div>
+    </form>
 </div>
 </body>
 </html>

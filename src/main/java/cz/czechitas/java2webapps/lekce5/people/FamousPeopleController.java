@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
@@ -37,4 +38,30 @@ public class FamousPeopleController {
     return result;
   }
 
+  @PostMapping("/{id}")
+  public String edit(@PathVariable int id, Person person) {
+    service.edit(id, person);
+    return "redirect:/";
+  }
+
+  @GetMapping("/search")
+  public ModelAndView search(@RequestParam String query) {
+    ModelAndView result = new ModelAndView("index");
+    result.addObject("people", service.getByName(query));
+    result.addObject("gender", Gender.values());
+    result.addObject("query", query);
+    return result;
+  }
+
+  @PostMapping("/")
+  public String append(Person person) {
+    service.append(person);
+    return "redirect:/";
+  }
+
+  @PostMapping("/delete/{id}")
+  public String deleteById(@PathVariable int id) {
+    service.deleteById(id);
+    return "redirect:/";
+  }
 }
